@@ -1,0 +1,5 @@
+<h1><%= @item.name %></h1>
+<%= render partial: 'inventories/inventories', locals: {inventories: @item.inventories, index: false} %><br/>
+<%= link_to "Add Item to Your Invenotry", new_item_inventory_path(@item) %><br/><br/>
+<%= link_to "Edit Item", edit_item_path(@item) %><br/><br/>
+<%=button_to("Delete", @item, method: :delete, data: {confirm: "Really Chap? Really?"}) %>
