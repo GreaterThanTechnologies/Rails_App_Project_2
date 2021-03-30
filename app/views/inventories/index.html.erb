@@ -1,0 +1,6 @@
+<h1>Search by Quantity</h1>
+<%= form_tag inventories_path, method: :get do %>
+  <% =text_field_tag :quantity %>
+  <% =submit_tag "Search" %>
+  <% end %><br/><br/>
+  <% =render(partial: 'inventories', locals: {inventories: @inventories, :index: true}) %>
