@@ -1,0 +1,17 @@
+<h1> Sign UP </h1>
+<% @errors && @errors.each do |e| %>
+  <li><%=e%></li>
+<% end %>
+
+<%= form_for @owner, url: signup_path do |f| %>
+  <%=f.label "First Name" %><br/><%=f.text_field :fname %><br/><br/>
+  <%=f.label "Last Name" %><br/><%=f.text_field :lname %><br/><br/>
+  <%=f.label "Username"%><br/><%=f.text_field :username %><br/><br/>
+  <%=f.label "Company Name"%><br/><%=f.text_field :company_name %><br/><br/>
+  <%=f.label "Location"%><br/><%=f.text_field :location %><br/><br/>
+  <%=f.label "Password"%><br/><%=f.password_field :password %><br/><br/>
+  <%=f.label "Password Confirmation"%><br/><%=f.password_field :password_confirmation %><br/><br/>
+  <%=f.submit "Sign Up"%>
+<%end%>
+
+<%= link_to "Git In With FaceBook", '/auth/facebook' %>
