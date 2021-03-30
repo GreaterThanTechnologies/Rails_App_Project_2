@@ -1,0 +1,11 @@
+<%=form_for(@item) do |f|%>
+  <%=f.label("Item Name:") %> <%=f.text_field(:name) %>
+  <%=f.label("Inventory:") %> 
+  <%=f.fields_for :inventories, @inventories do |i| %>
+    <%=i.label "Quantity"%>
+    <%=i.number_field :quantity%>
+    <%=i.label "Units"%>
+    <%=i.text_field :unit%>
+  <%end%>
+  <%=f.submit "Submit"%>
+<%end%>
