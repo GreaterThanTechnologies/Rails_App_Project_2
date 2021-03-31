@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
   
   resources :items, except:[:put] do
-    resources :inventories, :only: [:new, :create]
+    resources :inventories, only: [:new, :create]
   end
 
   # UNSURE  if these will work prooperly, remove this line when confirmed properly working
@@ -20,4 +20,5 @@ Rails.application.routes.draw do
   post '/login', to: "sessions#create"
   post '/logout', to: "sessions#destroy"
   get "/auth/facebook/callback", to: "sessions#create_with_fb"
+  root 'owners#home'
 end
