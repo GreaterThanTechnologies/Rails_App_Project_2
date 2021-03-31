@@ -5,9 +5,7 @@ class OwnersController < ApplicationController
     @owner = Owner.new
   end
 
-  def home
-    render :home
-  end
+
 
   def create
     @owner = Owner.new(owner_params)

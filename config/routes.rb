@@ -14,11 +14,12 @@ Rails.application.routes.draw do
 
   # UNSURE  if these will work prooperly, remove this line when confirmed properly working
   resources :inventories, only: [:new, :create, :index]
-  get '/signup', to: "owners#new", as: "signup"
-  post '/signup', to: "owners#create"
-  get '/login', to: "sessions#new", as: "login"
-  post '/login', to: "sessions#create"
-  post '/logout', to: "sessions#destroy"
-  get "/auth/facebook/callback", to: "sessions#create_with_fb"
-  root 'owners#home'
+
+  get '/signup' => "owners#new", as: "signup"
+  post '/signup' => "owners#create"
+  get '/login' => "sessions#new", as: "login"
+  post '/login' => "sessions#create"
+  post '/logout' => "sessions#destroy"
+  get "/auth/facebook/callback" => "sessions#create_with_fb"
+  get '/' => 'sessions#welcome' 
 end

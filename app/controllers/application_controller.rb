@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   end
 
   def req_login
-    redirect_to '/login' if !current_owner
+    redirect_to '/welcome' if !current_owner
   end
 
 end
