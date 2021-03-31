@@ -7,20 +7,25 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-   </head>
+  </head>
+  <ul>
+    <%if current_owner %>
+      <li class="nav"><%=link_to "All Items", items_path %>
+      <li class="nav"><%=link_to "Add an Item", new_item_path %>
+      <li class="nav"><%=link_to "All Inventories", inventories_path %>
+      <li class="nav"><%=link_to "Add Inventory", new_inventory_path %>
+      <li class="nav"><%=link_to "My Items", owner_items_path(current_owner) %>
+      <li class="nav"><%= button_to "Get Outta Here", logout_path, method: :post %>
+    <%else%>
+      <li class="nav"><%= link_to "Get In", login_path %>
+      <li class="nav"><%= link_to "Sign Up", signup_path %>
+  <%end%> 
+  </ul>
+  
 
   <body>
-  <%if current_owner %>
-      <%=link_to "All Items", items_path %>
-      <%=link_to "Add an Item", new_item_path %>
-      <%=link_to "All Inventories", inventories_path %>
-      <%=link_to "Add Inventory", new_inventory_path %>
-      <%=link_to "My Items", owner_items_path(current_owner) %>
-      <%= button_to "Get Outta Here", logout_path, method: :post %>
-      <%else%>
-        <%= link_to "Get In", login_path %>
-        <%= link_to "Sign Up", signup_path %>
-      <%end%>    
+  <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v10.0&appId=3868792436541551&autoLogAppEvents=1" nonce="qZ6BVs36"></script>
     <%= yield %>
   </body>
 </html>

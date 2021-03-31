@@ -1,5 +1,6 @@
 <h1> Good Day! </h1>
-<h5>Below is <i><b>THEE</b></i> Tactical Supply List</h5>
+<h3>Below is <i><b><u>thee</u></b></i>  Tactical Supply Application</h3><br/>
+<h3>for your business needs!</h3>
 <% @items.each do |item| %>
-  <li><%= link_to(item.name, item.item_path(item)) %></li>
+  <li><%= link_to(item.name, item_path(item)) %></li>
 <% end %>

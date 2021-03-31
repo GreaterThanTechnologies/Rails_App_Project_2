@@ -17,7 +17,7 @@ class InventoriesController < ApplicationController
       @items = Item.all
     else
       @inventory = Inventory.new
-      @items = Item.all
+      @inventory.build_item
     end
   end
 
@@ -30,8 +30,8 @@ class InventoriesController < ApplicationController
     if @inventory.save
       redirect_to items_path
     else
-        @items = Item.all
-       render :new
+      @items = Item.all
+      render :new
     end
   end
 
@@ -40,7 +40,7 @@ class InventoriesController < ApplicationController
   private
 
   def inventories_params
-    params.require(:inventory).permit(:quantity, :unit, :item_id)
+    params.require(:inventory).permit(:quantity, :unit, :item_id, :owner_id, item_attributes: [:name])
   end
 
 end
