@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
 
   # UNSURE  if these will work prooperly, remove this line when confirmed properly working
-  resources :inventories, only: [:new, :create, :index]
+  resources :inventories#, only: [:new, :create, :index]
 
   get '/signup' => "owners#new", as: "signup"
   post '/signup' => "owners#create"
@@ -21,5 +21,5 @@ Rails.application.routes.draw do
   post '/login' => "sessions#create"
   post '/logout' => "sessions#destroy"
   get "/auth/facebook/callback" => "sessions#create_with_fb"
-  get '/' => 'sessions#welcome' 
+  get '/' => 'sessions#welcome'
 end

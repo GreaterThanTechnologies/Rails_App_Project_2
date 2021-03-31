@@ -13,7 +13,13 @@ class ItemsController < ApplicationController
     end
   end
 
+  # def owner_items
+  #   @items = Item.where(owner_id: params[:owner_id])
+  # end
+
   def show
+    # @item = current_owner.items
+    # @inventory = Inventory.all 
   end
   
   def new
@@ -63,7 +69,7 @@ class ItemsController < ApplicationController
   private
 
     def item_params
-      params.require(:item).permit(:name, inventories_attributes: [:unit, :quantity, :owner_id])
+      params.require(:item).permit(:name, inventories_attributes: [:unit, :quantity, :owner_id, :item_id])
     end
 
     def set_item
