@@ -7,11 +7,10 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-  <%if current_user %>
+  <%if current_owner %>
       <%=link_to "All Items", items_path %>
       <%=link_to "Add an Item", new_item_path %>
       <%=link_to "All Inventories", inventories_path %>

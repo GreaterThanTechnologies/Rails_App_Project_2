@@ -19,9 +19,11 @@ class SessionsController < ApplicationController
   end
 
   def create_with_fb
-    owner = Owner.find_or_cerate_by(username: fb_auth['info']['name']) do |fb|
+    owner = Owner.find_or_create_by(username: fb_auth['info']['name']) do |fb|
       fb.password = 'password'
     end
+    
+
     if owner.save
       session[:owner_id] = owner.id
       redirect_to owner_items_path(owner)

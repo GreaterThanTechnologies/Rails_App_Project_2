@@ -1,7 +1,12 @@
-<% if current_owner %>
-<h1><%= current_owner.fname %>, Welcome to the Gun Supply Tracker! </h1>
-<h3><i> for your business needs </i></h3>
-<%= link_to "Get In with Your User Name", login_path %><br/>
-<%= link_to "Get In or Cont. with FaceBook", '' %><br/>
-<% link_to "Sign Up", signup_path %>
-<% end %>
+<%if current_owner %>
+<h1><%=current_owner.fname %>, Welcome to Gun Supply Tracker!</h1>
+<h3><i>for your business needs</i></h3>
+<%else %>
+<h1>Welcome to Gun Supply Tracker!</h1>
+
+
+<h3><i>for your business needs</i></h3>
+<%= link_to "Login with an User Name", login_path %><br/>
+<%= link_to 'Login / Continue with FaceBook', '' %><br/>
+<%= link_to "Signup", signup_path %>
+<%end%>
