@@ -1,4 +1,4 @@
-<h1> Good Day! <%= @fb_name%> </h1>
+<h1> Good Day! <%= current_owner.fname %></h1>
 <h3>Below is <i><b><u>your</u></b></i>  Tactical Inventory Supply</h3><br/>
  <% @items.each do |item| %>
   <h3 class="center"><li><%= link_to(item.name, item_path(item)) %></li> </h3>
