@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  # before_action(:change_fb_name_to_username)
 
   def new
     @owners = Owner.new 
@@ -22,10 +23,12 @@ class SessionsController < ApplicationController
   end
 
   def create_with_fb
-    owner = Owner.find_or_create_by(username: fb_auth['info']['name']) do |fb|
+    owner = Owner.find_or_create_by(username: fb_auth['info']['name'].downcase.delete(' ')) do |fb|
       fb.password = 'password'
+      binding.pry
+      # owner.change_fb_name_to_username
     end
-    
+    # owner.change_fb_name_to_username
 
     if owner.save
       session[:owner_id] = owner.id
@@ -40,12 +43,20 @@ class SessionsController < ApplicationController
     redirect_to '/signup'
   end
 
+  # def change_fb_name_to_username
+  #   owner = fb_auth['info']['name']
+  #   owner = owner.downcase
+  #   owner = owner.delete(' ')
+  # end
+
 ####
   private
 
   def fb_auth
     self.request.env['omniauth.auth']
   end
+
+ 
 
 end
 
