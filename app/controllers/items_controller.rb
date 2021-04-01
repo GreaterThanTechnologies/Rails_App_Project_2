@@ -13,13 +13,10 @@ class ItemsController < ApplicationController
     end
   end
 
-  # def owner_items
-  #   @items = Item.where(owner_id: params[:owner_id])
-  # end
-
   def show
-    # @item = current_owner.items
-    # @inventory = Inventory.all 
+  end
+
+  def welcome
   end
   
   def new
@@ -43,7 +40,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    binding.pry
+    
     @inventories = @item.inventories.where(owner_id: current_owner.id)
     @item = Item.all
   end
