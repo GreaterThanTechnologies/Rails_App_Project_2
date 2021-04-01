@@ -24,9 +24,11 @@ class InventoriesController < ApplicationController
   def create
     @inventory = Inventory.create(inventories_params)
     @inventory.owner = current_owner
+    binding.pry
     if params[:item_id]
       @inventory.item_id = params[:item_id]
     end
+    binding.pry
     if @inventory.save
       redirect_to items_path
     else

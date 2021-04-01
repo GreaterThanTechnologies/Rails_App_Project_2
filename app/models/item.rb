@@ -4,6 +4,9 @@ class Item < ApplicationRecord
 
   accepts_nested_attributes_for :inventories
 
-  validates_presence_of :name
-  validates_uniqueness_of :name
+  validates_presence_of :name, message: "Name is Required"
+
+  #custom item attribute method
+
+
 end

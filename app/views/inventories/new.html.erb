@@ -1,19 +1,19 @@
 <% @errors && @errors.each do |e| %>
-  <li><%=e%></li>
+  <li><%= e %></li>
 <%end%>
 
   <%if @item%>
     <h3><%=@item.name%></h3>
   <%end%>
-  <h1>Add to Your Inventory</h1>
+  <h1>Adjust Your Inventory</h1>
   <%= form_for(@inventory, url: form_url_helper(@item)) do |f| %>
     <h3><%= f.label "Quantity  " %><%=f.number_field(:quantity) %><br/></h3>
     <h3><%= f.label "Units  " %>
-    <%= f.select :unit, ["Single Unit", "Box", "Case", "Pallet", "Rounds", "Package Deal", "Other"], :prompt => "Select One" %><br/></h3>
+    <%= f.select :unit, ["Rounds", "Single Unit", "Box(s)", "Case(s)", "Pallet(s)", "Other"], :prompt => "Select One" %><br/></h3>
     <% if !@item%>
       <%= f.fields_for(:item) do |i| %>
-        <h3><%= i.label "Item " %><%= i.text_field(:name) %></h3>
-        <% end %>
+        <h3><%= i.label "Item " %><%= i.collection_select :id, current_owner.items, :id, :name %></h3>
+      <% end %>
       <%= f.hidden_field :owner_id, value: current_owner.id %>
     <% end %>
     <h3><%= f.submit("Save") %></h3>

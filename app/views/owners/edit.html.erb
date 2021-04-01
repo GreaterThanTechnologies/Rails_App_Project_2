@@ -1,7 +1,7 @@
 <h1>Please Add the Additional Details to Your Account</h1>
 
 <div class="center">
-<%binding.pry%>
+
   <%= form_for current_owner, url: edit_owner_path do |f| %>
   <h3><%=f.label "First Name" %><br/><%=f.text_field :fname %><br/><br/></h3>
   <h3><%=f.label "Last Name" %><br/><%=f.text_field :lname %><br/><br/></h3>
@@ -10,6 +10,6 @@
   <h3><%=f.label "Location"%><br/><%=f.text_field :location %><br/><br/></h3>
   <h3><%=f.label "Password"%><br/><%=f.password_field :password %><br/><br/></h3>
   <h3><%=f.label "Password Confirmation"%><br/><%=f.password_field :password_confirmation %><br/><br/></h3>
-  <h3><%=f.submit "Complete Sign Up"%></h3>
+  <h3><%=f.submit "Save"%></h3>
 <%end%>
 </div>

@@ -6,16 +6,19 @@ class OwnersController < ApplicationController
   end
 
   def update
-    @owner = current_owner
-    @owner.update(owner_params)
-      if @current_owner.save
-        redirect_to owner_items_path(@owner)
-      else
-        redirect_to edit_owner_path
-      end
-
-
+  @owner = current_owner
+  @owner.update(owner_params)
+    if @current_owner.save
+      redirect_to owner_items_path(@owner)
+    else
+      redirect_to edit_owner_path
+    end
   end
+   
+
+ 
+
+
 
   def create
     @owner = Owner.new(owner_params)
