@@ -1,6 +1,5 @@
-<h1> Good Day! </h1>
-<h3>Below is <i><b><u>thee</u></b></i>  Tactical Supply Application</h3><br/>
-<h3>for your business needs!</h3>
-<% @items.each do |item| %>
-  <li><%= link_to(item.name, item_path(item)) %></li>
+<h1> Good Day! <%= current_owner.fname %> </h1>
+<h3>Below is <i><b><u>your</u></b></i>  Tactical Inventory Supply</h3><br/>
+ <% @items.each do |item| %>
+  <h3 class="center"><li><%= link_to(item.name, item_path(item)) %></li> </h3>
 <% end %>

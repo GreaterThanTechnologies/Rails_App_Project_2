@@ -43,7 +43,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    binding.pry
     @inventories = @item.inventories.where(owner_id: current_owner.id)
+    @item = Item.all
   end
 
   def update

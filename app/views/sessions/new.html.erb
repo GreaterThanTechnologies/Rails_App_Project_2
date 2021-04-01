@@ -3,7 +3,7 @@
     <li><%= err %></li>
   <% end %>
 <%= form_for :owner do |f|%>
-  <%=f.label "Username" %><%=f.text_field :username%>
-  <%=f.label "Password"%><%=f.password_field :password %>
-  <%=f.submit "Get In"%>
+  <h3><%=f.label "Username " %><%= f.text_field :username%></h3>
+  <h3><%=f.label "Password "%><%= f.password_field :password %></h3>
+  <h3><%=f.submit "Get In"%></h3>
 <% end %>

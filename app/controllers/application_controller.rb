@@ -9,5 +9,6 @@ class ApplicationController < ActionController::Base
     redirect_to '/welcome' if !current_owner
   end
 
+ 
 end
  

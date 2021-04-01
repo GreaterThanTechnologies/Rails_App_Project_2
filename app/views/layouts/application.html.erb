@@ -10,14 +10,15 @@
   </head>
   <ul>
     <%if current_owner %>
-      <li class="nav"><%=link_to "All Items", items_path %>
-      <li class="nav"><%=link_to "Add an Item", new_item_path %>
-      <li class="nav"><%=link_to "All Inventories", inventories_path %>
+      <li class="nav"><%=link_to "All Owner's Items", items_path %>
       <li class="nav"><%=link_to "Add Inventory", new_inventory_path %>
       <li class="nav"><%=link_to "My Items", owner_items_path(current_owner) %>
-      <li class="nav"><%= button_to "Get Outta Here", logout_path, method: :post %>
+    
+      <li class="nav.a"><%= button_to "Log Out", logout_path, method: :post %>
     <%else%>
-      <li class="nav"><%= link_to "Get In", login_path %>
+      <li class="nav"></li><%= link_to('Log in with Facebook!', '/auth/facebook') %> 
+
+      <li class="nav"><%= link_to "Log In", login_path %>
       <li class="nav"><%= link_to "Sign Up", signup_path %>
       <li class="nav"><%=link_to "Home", '/' %>
 
