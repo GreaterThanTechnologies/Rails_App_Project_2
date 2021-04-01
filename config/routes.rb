@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # resources :owners
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  resources :owners, except: [:show, :idex, :new, :create, :destroy, :patch, :put] do 
+  resources :owners, except: [:show, :idex, :new, :create, :destroy, :put] do 
     resources :items, except: [:show, :edit, :update, :destroy, :put]
   end
   
@@ -22,4 +22,5 @@ Rails.application.routes.draw do
   post '/logout' => "sessions#destroy"
   get '/auth/facebook/callback' => 'sessions#create_with_fb'
   get '/' => 'sessions#welcome'
+  patch '/owners/:id/edit' => 'owners#update'
 end
