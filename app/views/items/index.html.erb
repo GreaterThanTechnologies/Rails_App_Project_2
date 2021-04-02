@@ -1,6 +1,10 @@
 <h1> Good Day! <%= current_owner.fname %></h1>
 <h3>Below is <i><b><u>your</u></b></i>  Tactical Inventory Supply</h3><br/>
  <% @items.each do |item| %>
-  <h3 class="center"><li><%= link_to(item.name, item_path(item)) %></li> </h3>
+  <h3 class="center"><l><%= link_to(item.name, item_path(item)) %></l> </h3>
+    <h4 class="center" display="inline"><% item.inventories.each do |q| %>
+    <%= q.quantity %> <%= q.unit %></h4>
+    <% end %>
+ 
 <% end %>
  

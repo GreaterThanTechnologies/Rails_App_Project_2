@@ -1,0 +1,9 @@
+<%if @item%>
+  <h3><%=@item.name%></h3>
+<%end%>
+<h1>Adjust Your Item / Inventory</h1>
+ 
+<% @errors && @errors.each do |p| %>
+  <li><%= p %></li>
+<% end %>
+<%= render('form') %>

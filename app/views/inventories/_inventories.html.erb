@@ -1,3 +1,4 @@
-<% inventories.each do |p| %>
-<li><%= p.quantity %><%= p.unit %><%= show_item_name(p, index) %></li>
+ 
+<% @inventories.each do |p| %>
+<li><%= p.quantity %><%= p.unit %>&nbsp; <%= show_item(p, index) %></li>
 <%end%>

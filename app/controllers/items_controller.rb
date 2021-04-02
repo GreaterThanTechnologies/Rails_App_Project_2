@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action(:set_item, except: [:index, :new, :create])
-  before_action(:req_login)
+  before_action(:req_login, )
 
   layout "application"
 
@@ -14,6 +14,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @inventories = @item.inventories
   end
 
   def welcome
@@ -40,7 +41,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    
     @inventories = @item.inventories.where(owner_id: current_owner.id)
     @item = Item.all
   end
@@ -53,7 +53,6 @@ class ItemsController < ApplicationController
         p.owner_id == current_owner.id
       end
       @errors = @item.errors.full_messages
-      @inventories = @item.inventories.select{|p| p.owner_id == current_owner.id}
       render :edit
     end
   end
@@ -68,11 +67,11 @@ class ItemsController < ApplicationController
   private
 
     def item_params
-      params.require(:item).permit(:name, inventories_attributes: [:unit, :quantity, :owner_id, :item_id])
+      params.require(:item).permit(:name, inventories_attributes: [:unit, :quantity, :owner_id, :item_id, :id])
     end
 
     def set_item
-      @item = Item.find_by(id: params[:id], name: params[:name])
+      @item = Item.find_by(id: params[:id])
     end
 
 

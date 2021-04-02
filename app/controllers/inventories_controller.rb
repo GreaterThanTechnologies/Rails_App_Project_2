@@ -24,11 +24,9 @@ class InventoriesController < ApplicationController
   def create
     @inventory = Inventory.create(inventories_params)
     @inventory.owner = current_owner
-    binding.pry
     if params[:item_id]
       @inventory.item_id = params[:item_id]
     end
-    binding.pry
     if @inventory.save
       redirect_to items_path
     else
@@ -36,6 +34,24 @@ class InventoriesController < ApplicationController
       render :new
     end
   end
+
+  def edit
+    @inventories = Inventory.all
+  end
+
+
+  def update
+    @items = Item.all
+    @inventory = current_owner_inventories
+    @inventory.update(inventories_params)
+    if @inventories.save
+      redirect_to owner_iventory_path(@inventories)
+    else
+      redirect_to edit_inventory_path
+    end
+  
+  end
+
 
 
 ####

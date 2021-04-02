@@ -16,14 +16,13 @@ class SessionsController < ApplicationController
       @errors = ["I Believe You Supplied an Invalid Password"]
       render :new
     else
-      @errors = ["OK, Maybe an Invalid Username, and/or Potentionally the Password Too"]
+      @errors = ["Maybe an Invalid Username, and/or Potentionally the Password Too! Get it Together!!!"]
       render :new
     end
   end
 
   def create_with_fb
     @owner = Owner.find_or_create_by(username: fb_auth['info']['name'].downcase.delete(' ')) 
-     
     if @owner.save
       session[:owner_id] = @owner.id
       redirect_to edit_owner_path(@owner)
@@ -36,8 +35,6 @@ class SessionsController < ApplicationController
     session.clear
     render :welcome
   end
-
- 
 
 ####
   private

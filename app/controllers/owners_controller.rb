@@ -15,11 +15,6 @@ class OwnersController < ApplicationController
     end
   end
    
-
- 
-
-
-
   def create
     @owner = Owner.new(owner_params)
     if @owner.save
