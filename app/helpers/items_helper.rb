@@ -1,7 +1,7 @@
 module ItemsHelper
 
-  def show_item(m, index)
-    m.item.name if index
+  def show_item(p, index)
+    p.item.name if index
   end
 
   def form_url_helper(item)

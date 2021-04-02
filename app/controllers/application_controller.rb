@@ -9,10 +9,10 @@ class ApplicationController < ActionController::Base
     redirect_to '/' if !current_owner
   end
 
-  def current_owner_inventory
-    @current_owner = Owner.find_by(id: session[:owner_id])
-    @cureent_owner.inventories
-  end
+  # def current_owner_inventory
+  #   @current_owner = Owner.find_by(id: session[:owner_id])
+  #   @cureent_owner.inventories
+  # end
 
  
 end

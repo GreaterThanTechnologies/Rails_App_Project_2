@@ -1,9 +1,16 @@
-<%if @item%>
-  <h3><%=@item.name%></h3>
-<%end%>
-<h1>Adjust Your Item / Inventory</h1>
- 
 <% @errors && @errors.each do |p| %>
   <li><%= p %></li>
 <% end %>
-<%= render('form') %>
+<h1>Adjust Your Item / Inventory</h1>
+
+<%if @item%>
+  <h3><%=@item.name%></h3>
+<%end%>
+ 
+<%= form_for(@inventory) do |f| %>
+  <%= f.label "Quantity" %>
+  <%= f.number_field(:quantity) %>
+  <%= f.label "Units" %>
+  <%= f.text_field(:unit) %>
+  <%= f.submit("Save") %>
+<% end %>

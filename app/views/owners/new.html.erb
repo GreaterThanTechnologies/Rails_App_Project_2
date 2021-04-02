@@ -4,14 +4,14 @@
 <% end %>
 
 <%= form_for @owner, url: signup_path do |f| %>
-  <h3><%=f.label "First Name" %><br/><%=f.text_field :fname %><br/><br/></h3>
-  <h3><%=f.label "Last Name" %><br/><%=f.text_field :lname %><br/><br/></h3>
-  <h3><%=f.label "Username"%><br/><%=f.text_field :username %><br/><br/></h3>
-  <h3><%=f.label "Company Name"%><br/><%=f.text_field :company_name %><br/><br/></h3>
-  <h3><%=f.label "Location"%><br/><%=f.text_field :location %><br/><br/></h3>
-  <h3><%=f.label "Password"%><br/><%=f.password_field :password %><br/><br/></h3>
-  <h3><%=f.label "Password Confirmation"%><br/><%=f.password_field :password_confirmation %><br/><br/></h3>
-  <h3><%=f.submit "Sign Up"%></h3>
-<%end%>
+  <h3><%= f.label "First Name" %><br/><%=f.text_field :fname %><br/><br/></h3>
+  <h3><%= f.label "Last Name" %><br/><%=f.text_field :lname %><br/><br/></h3>
+  <h3><%= f.label "Username"%><br/><%=f.text_field :username %><br/><br/></h3>
+  <h3><%= f.label "Company Name"%><br/><%=f.text_field :company_name %><br/><br/></h3>
+  <h3><%= f.label "Location"%><br/><%=f.text_field :location %><br/><br/></h3>
+  <h3><%= f.label "Password"%><br/><%=f.password_field :password %><br/><br/></h3>
+  <h3><%= f.label "Password Confirmation"%><br/><%=f.password_field :password_confirmation %><br/><br/></h3>
+  <h3><%= f.submit "Sign Up" %></h3>
+<% end %>
 
-<%= link_to "Git In With FaceBook", '/auth/facebook' %>
+<%= link_to "Loginn With FaceBook", '/auth/facebook' %>

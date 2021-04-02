@@ -1,9 +1,11 @@
-<%if current_owner %>
-<h1><%=current_owner.fname %>, Welcome to Gun Supply Tracker!</h1>
-<h3><i>for your business needs</i></h3>
-<%else %>
-<h1>Welcome to Gun Supply Tracker!</h1>
+<% if current_owner %>
+<h1><%= current_owner.fname %>, Welcome to Gun Supply Tracker! </h1>
+<h3><i> for your business needs </i></h3>
+<% else %>
+<h1> Welcome to Gun Supply Tracker! </h1>
 
 
-<h3><i>for your business needs</i></h3>
-<%end%>
+<h3><i> for your business needs </i></h3>
+<% end %>
+
+ 

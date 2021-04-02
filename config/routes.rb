@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
   
   resources :items, except:[:put] do
-    resources :inventories, only: [:new, :create]
+    resources :inventories, only: [:new, :create, :edit]
   end
 
   # UNSURE  if these will work prooperly, remove this line when confirmed properly working

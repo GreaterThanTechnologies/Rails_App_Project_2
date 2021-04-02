@@ -7,15 +7,16 @@ class ItemsController < ApplicationController
   def index
     if params[:owner_id]
       owner = Owner.find_by(id: params[:owner_id])
-      @items = owner.items
+      @items = current_owner.items
      else
       @items = Item.all
     end
   end
 
   def show
-    @inventories = @item.inventories
-  end
+    @items = Item.all
+    @inventories = Inventory.all
+   end
 
   def welcome
   end
@@ -32,7 +33,7 @@ class ItemsController < ApplicationController
       p.owner = current_owner
     end
     if @item.save
-        redirect_to item_path(@item)
+        redirect_to owner_items_path(@item)
     else
       @errors = @item.errors.full_messages
       @inventories = @item.inventories.select{|p| p.owner_id == current_owner.id}

@@ -1,9 +1,11 @@
 <h1>Log In</h1>
+
   <% @errors && @errors.each do |err| %>
     <li><%= err %></li>
   <% end %>
+
 <%= form_for :owner do |f|%>
-  <h3><%=f.label "Username " %><%= f.text_field :username%></h3>
-  <h3><%=f.label "Password "%><%= f.password_field :password %></h3>
-  <h3><%=f.submit "Get In"%></h3>
+  <h3><%= f.label "Username " %><%= f.text_field :username %></h3>
+  <h3><%= f.label "Password " %><%= f.password_field :password %></h3>
+  <h3><%= f.submit "Get In" %></h3>
 <% end %>

@@ -10,9 +10,10 @@
   </head>
   <ul>     
     <% if current_owner %>
+      <li class="nav"><%=link_to "Search Owner's Items", items_path %>
       <li class="nav"><%=link_to "All Owner's Items", items_path %>
       <li class="nav"><%=link_to "Add Item", new_item_path %>
-      <li class="nav"><%=link_to "Adjust Inventory", edit_inventory_path(current_owner) %>
+      <li class="nav"><%=link_to "Adjust Inventory", inventories_path(current_owner) %>
       <li class="nav"><%=link_to "My Items", owner_items_path(current_owner) %>
       <li class="nav"><%=link_to "Edit My Profile", edit_owner_path(current_owner) %>
       <li class="nav"><%=link_to "Home", '/' %>

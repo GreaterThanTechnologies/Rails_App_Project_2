@@ -1,4 +1,10 @@
  
 <% @inventories.each do |p| %>
-<li><%= p.quantity %><%= p.unit %>&nbsp; <%= show_item(p, index) %></li>
-<%end%>
+  <li><%= p.quantity %><%= p.unit %> 
+  &nbsp; 
+  <%= show_item(p, index) %></li>
+  <li><%= (p.owner == current_owner) ? (link_to "Edit", edit_item_inventory_path(p)) : (nil) %></li>
+<% end %>
+
+
+

@@ -4,7 +4,17 @@ class SessionsController < ApplicationController
     @owners = Owner.new 
   end
 
+  def item 
+    @items = Item.all
+  end
+
   def welcome
+    @items = current_owner.items
+    if params[:owner_id]
+      owner = Owner.find_by(id: params[:owner_id])
+     else
+      @items = Item.all
+    end
   end
 
   def create 
