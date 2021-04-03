@@ -25,6 +25,7 @@ class OwnersController < ApplicationController
     @owner = Owner.new(owner_params)
     if @owner.save
       session[:owner_id] = @owner.id
+      flash[:message] = "Successfully created account!"
       redirect_to owner_items_path(@owner)
     else
       @errors = @owner.errors.full_messages

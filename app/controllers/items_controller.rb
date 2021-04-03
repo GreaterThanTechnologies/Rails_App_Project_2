@@ -34,17 +34,15 @@ class ItemsController < ApplicationController
       p.owner = current_owner
     end
     if @item.save
+      flash[:message] = "Success! BOOM!"
         redirect_to owner_items_path(@item)
     else
-      @errors = @item.errors.full_messages
       @inventories = @item.inventories.select{|p| p.owner_id == current_owner.id}
       render :new
     end
   end
 
   def edit
-    # @inventories = @item.inventories.where(owner_id: current_owner.id)
-    # @item = Item.all
   end
 
   def update
@@ -54,7 +52,7 @@ class ItemsController < ApplicationController
       @inventories = @item.inventories.select do |p|
         p.owner_id == current_owner.id
       end
-      @errors = @item.errors.full_messages
+      flash[:message] = "Successfully deleted!"
       render :edit
     end
   end
@@ -62,6 +60,7 @@ class ItemsController < ApplicationController
 
   def destroy
     @item.delete
+    flash[:message] = "Successfully deleted!"
     redirect_to items_path
   end
 

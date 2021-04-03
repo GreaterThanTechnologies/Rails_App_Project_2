@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
+    @errors = []
     @owners = Owner.new 
   end
 
@@ -12,12 +13,6 @@ class SessionsController < ApplicationController
   end
 
   def welcome
-    # @items = current_owner.items
-    # if params[:owner_id]
-    #   owner = Owner.find_by(id: params[:owner_id])
-    # else
-    #   @items = Item.all
-    # end
   end
 
   def create 
@@ -40,14 +35,17 @@ class SessionsController < ApplicationController
     end
     if owner.save
       session[:owner_id] = owner.id
+      flash[:message] = "Successfully logged in!"
       render :welcome 
     else
+      flash[:message] = "Login failed!"
       redirect_to signup_path
     end
   end
 
   def destroy
     session.clear
+    flash[:message] = "Successfully logged out!"
     render :welcome
   end
 

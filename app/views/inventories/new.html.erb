@@ -1,6 +1,5 @@
-<% @errors && @errors.each do |e| %>
-  <li><%= e %></li>
-<%end%>
+<%=render(partial: "application/errors", locals: {errors: @item.errors.full_messages})%>
+
 
   <% if @item %>
     <h3><%= @item.name %></h3>

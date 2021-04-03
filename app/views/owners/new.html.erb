@@ -1,7 +1,6 @@
-<h1> Sign UP </h1>
-<% @errors && @errors.each do |e| %>
-  <li><%=e%></li>
-<% end %>
+<%=render(partial: "application/errors", locals: {errors: @user.errors.full_messages})%>
+
+
 
 <%= form_for @owner, url: signup_path do |f| %>
   <h3><%= f.label "First Name" %><br/><%=f.text_field :fname %><br/><br/></h3>

@@ -1,4 +1,4 @@
-<% @errors && @errors.each do |err| %>
-  <li><%= err %></li>
-<% end %>
+<%=render(partial: "application/errors", locals: {errors: @item.errors.full_messages})%>
+
+
 <%= render('form') %>

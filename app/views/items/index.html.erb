@@ -8,11 +8,14 @@
     <%= q.quantity %> <%= q.unit %></h4>
 
       <h4 class="center"><% item.owners.each do |o| %></h4>
-      <h4 class="center">   <%= o.company_name %> <%= o.location %></h4>
-       <h4 class="center">  <% end %> 
-    <% end %>
+      <h4 class="center"><%= o.company_name %> /  <%= o.location %></h4>
+      <h4 class="center">  
+      <%binding.pry%>
+    <% end %> 
+
   <% end %>
+<% end %>
 
 <% if !current_owner.items.exists? %>
-   <h3 class="center">You currently have no items.</h3>
-  <% end %>
+  <h3 class="center">You currently have no items.</h3>
+<% end %>

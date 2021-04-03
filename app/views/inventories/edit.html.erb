@@ -1,8 +1,4 @@
-<% @errors && @errors.each do |p| %>
-  <li><%= p %></li>
-<% end %>
-<h1>Adjust Your Item / Inventory</h1>
-
+<%=render(partial: "application/errors", locals: {errors: @measurement.errors.full_messages})%>
 <%if @item%>
   <h3><%=@item.name%></h3>
 <%end%>

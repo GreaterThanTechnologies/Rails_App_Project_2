@@ -6,6 +6,5 @@
 <h4 class="center">
 
 <h4><%= button_to("Delete", @item, method: :delete, data: { confirm: "Really? Do You Want to Do This?" }) %></h4>
-
-
+ 
 <h4><%= button_to "Delete",{ action: "destroy"}, id: @item.id, method: :delete, data: { turbolinks: false, confirm: "Are you sure?" } %></h4>
