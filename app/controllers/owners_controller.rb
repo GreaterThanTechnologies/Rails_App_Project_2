@@ -8,6 +8,9 @@ class OwnersController < ApplicationController
   def profile 
   end
 
+  def index
+  end 
+  
   def update
   @owner = current_owner
   @owner.update(owner_params)

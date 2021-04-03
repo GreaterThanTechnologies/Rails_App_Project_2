@@ -35,10 +35,12 @@ class SessionsController < ApplicationController
   end
 
   def create_with_fb
-    @owner = Owner.find_or_create_by(username: fb_auth['info']['name'].downcase.delete(' ')) 
-    if @owner.save
-      session[:owner_id] = @owner.id
-      redirect_to edit_owner_path(@owner)
+    owner = Owner.find_or_create_by(username: fb_auth['info']['name'].downcase.delete(' ')) do |p|
+      p.password = 'password'
+    end
+    if owner.save
+      session[:owner_id] = owner.id
+      render :welcome 
     else
       redirect_to signup_path
     end
