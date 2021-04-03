@@ -8,20 +8,23 @@ class SessionsController < ApplicationController
     @items = Item.all
   end
 
+  def items
+  end
+
   def welcome
-    @items = current_owner.items
-    if params[:owner_id]
-      owner = Owner.find_by(id: params[:owner_id])
-     else
-      @items = Item.all
-    end
+    # @items = current_owner.items
+    # if params[:owner_id]
+    #   owner = Owner.find_by(id: params[:owner_id])
+    # else
+    #   @items = Item.all
+    # end
   end
 
   def create 
     @owner = Owner.find_by(username: params[:owner][:username])
     if @owner && @owner.authenticate(params[:owner][:password])
       session[:owner_id] = @owner.id
-      redirect_to owner_items_path(@owner)
+      render :welcome
     elsif @owner
       @errors = ["I Believe You Supplied an Invalid Password"]
       render :new

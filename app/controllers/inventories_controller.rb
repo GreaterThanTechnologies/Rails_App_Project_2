@@ -3,8 +3,8 @@ class InventoriesController < ApplicationController
   layout "application"
 
   def index
-    if params[:quantity]
-      @inventories = Inventories.quantity_search(params[:quantity])
+    if params[:name]
+      @inventories = Inventories.name_search(params[:name])
     else
       @inventories = Inventory.all
     end
@@ -58,8 +58,12 @@ class InventoriesController < ApplicationController
 ####
   private
 
+  def current_owner_inventories
+    current_owner.inventories
+  end
+
   def inventories_params
-    params.require(:inventory).permit(:quantity, :unit, :item_id, :owner_id, item_attributes: [:name])
+    params.require(:inventory).permit(:quantity, :unit, :id, :item_id, :owner_id, item_attributes: [:name])
   end
 
 end

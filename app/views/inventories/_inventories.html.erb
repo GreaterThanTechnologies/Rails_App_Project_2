@@ -3,8 +3,9 @@
   <li><%= p.quantity %><%= p.unit %> 
   &nbsp; 
   <%= show_item(p, index) %></li>
-  <li><%= (p.owner == current_owner) ? (link_to "Edit", edit_item_inventory_path(p)) : (nil) %></li>
-<% end %>
+  <%binding.pry%>
+  <li><%= (p.owner == current_owner) ? (link_to "Edit", edit_item_path(p)) : (nil) %></li>
+ <% end %>
 
 
 

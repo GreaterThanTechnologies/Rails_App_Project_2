@@ -1,9 +1,9 @@
-<h1> Search by Quantity </h1>
+<h1> Search by item Name </h1>
 
-<%= form_with url: inventories_path, method: :get do |p| %>
+<%= form_with url: items_path, method: :get do |p| %>
 
-  <h3><%= p.label "Number Input " %><%= p.text_field :quantity %></h3>
+  <h3><%= p.label "What are you looking for? " %><%= p.text_field :name %></h3>
   <h3><%= p.submit "Search" %></h3>
 <% end %><br/><br/>
-
-<%= render(partial: 'inventories', locals: {inventories: @inventories, index: true}) %>
+<%binding.pry%>
+<%= render(partial: 'inventories', locals: {item: @item, index: true}) %>

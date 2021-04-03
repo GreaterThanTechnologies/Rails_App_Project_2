@@ -5,6 +5,9 @@ class OwnersController < ApplicationController
     @owner = Owner.new
   end
 
+  def profile 
+  end
+
   def update
   @owner = current_owner
   @owner.update(owner_params)

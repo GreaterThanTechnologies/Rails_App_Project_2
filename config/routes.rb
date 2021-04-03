@@ -22,5 +22,6 @@ Rails.application.routes.draw do
   post '/logout' => "sessions#destroy"
   get '/auth/facebook/callback' => 'sessions#create_with_fb'
   root :to => 'sessions#welcome'
+  get '/profile' => 'owners#profile'
   patch '/owners/:id/edit' => 'owners#update'
  end

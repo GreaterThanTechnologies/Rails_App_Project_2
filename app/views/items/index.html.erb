@@ -1,10 +1,13 @@
 <h1> Good Day! <%= current_owner.fname %></h1>
-<h3>Below is all of the owner's items & inventory.</h3><br/>
+<h3>Below are the items & inventory you're looking for.</h3><br/>
+
  <% @items.each do |item| %>
   <h2 class="center"><%= link_to(item.name, item_path(item)) %></> </h3>
     <h4 class="center"><% item.inventories.each do |q| %>
     <%= q.quantity %> <%= q.unit %></h4>
     <% end %>
- 
-<% end %>
-  
+  <% end %>
+
+<% if !current_owner.items.exists? %>
+   <h3 class="center">You currently have no items.</h3>
+  <% end %>
