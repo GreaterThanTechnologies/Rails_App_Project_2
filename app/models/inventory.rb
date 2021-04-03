@@ -7,5 +7,4 @@ class Inventory < ApplicationRecord
    
   accepts_nested_attributes_for :item
  
-  scope(:name_search, ->(name) { self.where("name = ?", name) })
 end

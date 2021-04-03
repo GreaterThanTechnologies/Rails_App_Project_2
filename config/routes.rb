@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   resources :owners, except: [:show, :idex, :put] do 
-    resources :items, except: [:show, :update, :destroy, :put]
+    resources :items, except: [:show, :destroy, :put]
   end
   
   resources :items, except:[:put] do

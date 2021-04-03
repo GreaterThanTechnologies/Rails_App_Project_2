@@ -6,5 +6,6 @@ class Item < ApplicationRecord
 
   validates_presence_of :name, message: " is Required"
   
+  scope(:name_search, ->(name) { self.where("name = ?", name) })
 
 end

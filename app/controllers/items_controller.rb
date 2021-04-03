@@ -5,13 +5,14 @@ class ItemsController < ApplicationController
   layout "application"
 
   def index
-    if params[:owner_id]
-      owner = Owner.find_by(id: params[:owner_id])
-      @items = current_owner.items
-     else
+    @items = Item.all
+    if params[:name]
+      @items = Item.name_search(params[:name])
+    else
       @items = Item.all
     end
   end
+  
 
   def show
     @items = Item.all

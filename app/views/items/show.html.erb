@@ -1,9 +1,11 @@
 <h1><%= @item.name  %></h1>
+<% @item.inventories.each do |i|%>
+  <h3 class="center">You currently have <%= i.quantity %> (<%= i.unit %>) in your store.</h3>
+  <% end %>
+<h4 class="center"><%= link_to "Edit Item", edit_item_path(@item) %></h4><br/><br/>
+<h4 class="center">
 
-<%= render :partial => 'inventories/inventories', locals: {inventories: @item.inventories, index: false} %><br/>
-<%= link_to "Add Item to Your Invenotry", new_item_path(@item) %><br/><br/>
-<%= link_to "Edit Item", edit_item_path(@item) %><br/><br/>
-<%= button_to("Delete", @item, method: :delete, data: { confirm: "Really? Do You Want to Do Tis?" }) %>
+<h4><%= button_to("Delete", @item, method: :delete, data: { confirm: "Really? Do You Want to Do This?" }) %></h4>
 
- 
 
+<h4><%= button_to "Delete",{ action: "destroy"}, id: @item.id, method: :delete, data: { turbolinks: false, confirm: "Are you sure?" } %></h4>
