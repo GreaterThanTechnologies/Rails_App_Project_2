@@ -9,7 +9,7 @@ class Item < ApplicationRecord
 
 
   
-  scope(:name_search, ->(name) { self.where("name = ?", name)})
+  scope :name_search, ->(name) { self.where("name = ?", name)}
 
   
 
