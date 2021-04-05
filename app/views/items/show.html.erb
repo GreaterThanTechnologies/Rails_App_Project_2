@@ -2,9 +2,6 @@
 <% @item.inventories.each do |i|%>
   <h3 class="center">You currently have <%= i.quantity %> (<%= i.unit %>) in your store.</h3>
   <% end %>
-<h4 class="center"><%= link_to "Edit Item", edit_item_path(@item) %></h4><br/><br/>
-<h4 class="center">
-
-<h4><%= button_to("Delete", @item, method: :delete, data: { confirm: "Really? Do You Want to Do This?" }) %></h4>
- 
-<h4><%= button_to "Delete",{ action: "destroy"}, id: @item.id, method: :delete, data: { turbolinks: false, confirm: "Are you sure?" } %></h4>
+  <h4 class="center"><%= link_to "Edit Item", edit_item_path(@item) %></h4><br/><br/>
+  <h4 class="center"><%= button_to("Delete", @item, method: :delete, data: { confirm: "Really? Do You Want to Do This?" }) %></h4>
+  

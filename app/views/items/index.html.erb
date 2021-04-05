@@ -2,7 +2,7 @@
 <h3>Below are the items & inventory you're looking for.</h3><br/>
 
  <% @items.each do |item| %>
-  <h2 class="center"><%= link_to(item.name, item_path(item)) %></> </h3>
+  <h3 class="center"><%= link_to(item.name, item_path(item)) %></> </h3>
 
     <h4 class="center"><% item.inventories.each do |q| %>
     <%= q.quantity %> <%= q.unit %></h4>

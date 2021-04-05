@@ -1,16 +1,19 @@
-<%=render(partial: "application/errors", locals: {errors: @user.errors.full_messages})%>
+<% if @errors %>
+<%=render(partial: "application/errors", locals: {errors: @owner.errors.full_messages}) %>
 
-
+<% else %>
 
 <%= form_for @owner, url: signup_path do |f| %>
-  <h3><%= f.label "First Name" %><br/><%=f.text_field :fname %><br/><br/></h3>
-  <h3><%= f.label "Last Name" %><br/><%=f.text_field :lname %><br/><br/></h3>
+  <h3><%= f.label "First Name" %><br/><%=f.text_field :fname, :required => true %><br/><br/></h3>
+  <h3><%= f.label "Last Name" %><br/><%=f.text_field :lname, :required => true %><br/><br/></h3>
   <h3><%= f.label "Username"%><br/><%=f.text_field :username %><br/><br/></h3>
-  <h3><%= f.label "Company Name"%><br/><%=f.text_field :company_name %><br/><br/></h3>
-  <h3><%= f.label "Location"%><br/><%=f.text_field :location %><br/><br/></h3>
+  <h3><%= f.label "Company Name"%><br/><%=f.text_field :company_name, :required => true %><br/><br/></h3>
+  <h3><%= f.label "Location"%><br/><%=f.text_field :location, :required => true %><br/><br/></h3>
   <h3><%= f.label "Password"%><br/><%=f.password_field :password %><br/><br/></h3>
   <h3><%= f.label "Password Confirmation"%><br/><%=f.password_field :password_confirmation %><br/><br/></h3>
   <h3><%= f.submit "Sign Up" %></h3>
 <% end %>
+<% end %>
 
-<%= link_to "Loginn With FaceBook", '/auth/facebook' %>
+
+<%= link_to "Login With FaceBook", '/auth/facebook' %>
