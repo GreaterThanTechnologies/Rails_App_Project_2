@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
-  resources :owners, except: [:idex, :put] do 
-    resources :items, except: [:show, :destroy, :put]
+  resources :owners, except: [:index, :put] do 
+    resources :items, except: [:destroy, :put]
   end
   
   resources :items, except:[:put] do

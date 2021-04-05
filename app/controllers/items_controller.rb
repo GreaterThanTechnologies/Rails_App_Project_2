@@ -22,6 +22,14 @@ class ItemsController < ApplicationController
       @items = Item.all
     end
   end
+
+  # def index
+  #   if params[:name]
+  #     @items = Item.name_search(params[:name])
+  #   else
+  #     @items = Item.all
+  #   end
+  # end
   
   def new
     @item = Item.new

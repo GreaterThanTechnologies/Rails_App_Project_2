@@ -6,7 +6,7 @@
   <h3><%= p.submit "Search" %></h3>
 <% end %><br/><br/>
 
-<%= render(partial: 'inventories', locals: {item: @item, index: true}) %>%
+<%= render(partial: 'inventories', locals: {inventories: @inventories, index: true}) %>%
 
 
 
