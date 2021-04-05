@@ -5,7 +5,7 @@ class InventoriesController < ApplicationController
   def index
     if params[:name]
       @inventories = Inventory.name_search(params[:name])
-     else
+    else
       @inventories = Inventory.all
     end
   end

@@ -1,5 +1,4 @@
 
-
 :root {
   --size1: 4.209rem;
   --size2: 3.157rem;
@@ -121,7 +120,7 @@ div.medium {
 
 
 
-.field_with_errors input[type=text] { 
+.field_with_errors { 
   display: inline; 
   border: 5px solid var(--color1);
   border-radius: 0.5rem;

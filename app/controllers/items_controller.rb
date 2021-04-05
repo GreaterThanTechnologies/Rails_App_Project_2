@@ -17,7 +17,7 @@ class ItemsController < ApplicationController
   def index
     if params[:owner_id]
       owner = Owner.find_by(id: params[:owner_id])
-      @items = owner.items
+      @items = current_owner.items
      else
       @items = Item.all
     end
