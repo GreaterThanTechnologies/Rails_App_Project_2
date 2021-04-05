@@ -11,7 +11,7 @@
   <ul>     
     <% if current_owner %>
       <%# <li class="nav"><%=link_to "Search Owner's Items", items_path %> 
-      <li class="nav"><%=link_to "Search Everyone's Items", items_path(current_owner)%>
+      <li class="nav"><%=link_to "Search Everyone's Items", search_path%>
       <li class="nav"><%=link_to "All Owner's Items", items_path %>
       <li class="nav"><%=link_to "Add Item", new_item_path %>
       <li class="nav"><%=link_to "My Items",  owner_items_path(current_owner) %>

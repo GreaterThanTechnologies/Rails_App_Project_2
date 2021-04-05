@@ -4,7 +4,8 @@ class InventoriesController < ApplicationController
 
   def index
     if params[:name]
-      @inventories = Inventory.name_search(params[:name])
+      @inventories = Inventories.name_search(params[:name])
+  
     else
       @inventories = Inventory.all
     end
@@ -65,5 +66,12 @@ class InventoriesController < ApplicationController
   def inventories_params
     params.require(:inventory).permit(:quantity, :unit, :id, :item_id, :owner_id, item_attributes: [:name])
   end
+
+  # def search_all_items
+  #   @items = Item.all
+  #   if params[:name]
+  #     @items = Item.name_search(params[:name])
+  #   end
+  # end
 
 end

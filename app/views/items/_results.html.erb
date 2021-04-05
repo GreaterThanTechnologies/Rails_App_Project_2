@@ -1,0 +1,3 @@
+<% @items.each do |i| %>
+  <li><%=m.quantity%> <%=m.unit%> <%=show_item(m, index)%> <%= (m.user == current_user) ? (link_to "Edit", edit_item_path(m)) : (nil) %></li>
+<%end%>

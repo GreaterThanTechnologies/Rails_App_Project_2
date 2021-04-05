@@ -4,7 +4,26 @@ class ItemsController < ApplicationController
 
   layout "application"
 
- 
+  def search
+    if params[:name]
+      @items = Item.name_search(params[:name])
+      binding.pry
+    end
+  end
+
+  # def result
+  #   binding.pry
+  #   if params[:name]
+  #     binding.pry
+
+  #     @items = Item.name_search(params[:name])
+  #     binding.pry
+
+  #   else
+  #     binding.pry
+  #     @items = Item.all
+  #   end
+  # end
 
   def show
     @items = Item.all
@@ -22,14 +41,6 @@ class ItemsController < ApplicationController
       @items = Item.all
     end
   end
-
-  # def index
-  #   if params[:name]
-  #     @items = Item.name_search(params[:name])
-  #   else
-  #     @items = Item.all
-  #   end
-  # end
   
   def new
     @item = Item.new
