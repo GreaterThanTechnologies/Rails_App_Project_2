@@ -7,9 +7,8 @@ class Item < ApplicationRecord
   validates_presence_of :name, message: " is Required"
 
 
-  scope :name_search, lambda { |attribute, value| where("lower(#{attribute}) = ?", value.downcase).first}
 
   
-  scope(:name_search, ->(name) { self.where("name = ?", name) })
+  # scope(:name_search, ->(name) { self.where("name = ?", name) })
 
 end

@@ -5,6 +5,7 @@ class OwnersController < ApplicationController
     @owner = Owner.new
   end
 
+
   def profile 
   end
 
