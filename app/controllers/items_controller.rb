@@ -1,7 +1,6 @@
 class ItemsController < ApplicationController
   before_action(:set_item, except: [:index, :new, :create])
   before_action(:req_login, )
-
   layout "application"
 
   def search
@@ -11,6 +10,9 @@ class ItemsController < ApplicationController
     end
   end
 
+  def most
+    @owner = Owner.order(:items.size).first
+  end
 
 
   def show
@@ -38,14 +40,12 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    @item.inventories.each do |p|
-      p.owner = current_owner
-    end
+    @item.inventories.each {|p| p.owner = current_owner}
     if @item.save
-      flash[:message] = "Success! BOOM!"
+      flash[:message] = "Success"
         redirect_to owner_items_path(@item)
     else
-      @inventories = @item.inventories.select{|p| p.owner_id == current_owner.id}
+      @inventories = @item.inventories.select {|p| p.owner_id == current_owner.id}
       render :new
     end
   end
@@ -56,15 +56,12 @@ class ItemsController < ApplicationController
   def update
     if @item.update(item_params)
       redirect_to(item_path(@item))
+      flash[:message] = "Successfull"
     else
-      @inventories = @item.inventories.select do |p|
-        p.owner_id == current_owner.id
-      end
-      flash[:message] = "Successfully deleted!"
+      @inventories = @item.inventories.select {|p| p.owner_id == current_owner.id}
       render :edit
     end
   end
-
 
   def destroy
     @item.delete
@@ -82,6 +79,5 @@ class ItemsController < ApplicationController
     def set_item
       @item = Item.find_by(id: params[:id])
     end
-
 
 end

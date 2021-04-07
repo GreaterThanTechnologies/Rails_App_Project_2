@@ -5,7 +5,6 @@ class OwnersController < ApplicationController
     @owner = Owner.new
   end
 
-
   def profile 
   end
 
@@ -34,12 +33,11 @@ class OwnersController < ApplicationController
     end
   end
 
-
-
-
+####
   private
 
   def owner_params
     params.require(:owner).permit(:username, :fname, :lname, :company_name, :password, :location, :password_confirmation)
   end
+  
 end

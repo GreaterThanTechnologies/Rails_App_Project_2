@@ -7,5 +7,5 @@ class Owner < ApplicationRecord
   validates_uniqueness_of :username, message: " is not available."
   validates_presence_of :username, message: " is required."
 
-  validates :username, format: {with: /\A^[a-z0-9]*$\z/, message: "--> uppercase, special characters & spaces are not permitted."}
+  validates :username, format: {with: /\A^[a-z0-9]*$\z/, message: " special characters, spaces and capital letters not permitted."}
 end

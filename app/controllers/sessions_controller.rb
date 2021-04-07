@@ -6,10 +6,10 @@ class SessionsController < ApplicationController
   end
 
   def item 
-    @items = Item.all
   end
 
   def items
+    @items = Item.all
   end
 
   def welcome
@@ -21,10 +21,10 @@ class SessionsController < ApplicationController
       session[:owner_id] = @owner.id
       render :welcome
     elsif @owner
-      @errors = ["I Believe You Supplied an Invalid Password"]
+      @errors = ["Invalid password."]
       render :new
     else
-      @errors = ["Maybe an Invalid Username, and/or Potentionally the Password Too! Get it Together!!!"]
+      @errors = ["Invalid username and/or password."]
       render :new
     end
   end

@@ -4,7 +4,7 @@ class Item < ApplicationRecord
 
   accepts_nested_attributes_for :inventories
 
-  validates_presence_of :name, message: " is Required"
+  validates_presence_of :name, message: " is required"
 
 
 

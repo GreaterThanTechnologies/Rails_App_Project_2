@@ -5,7 +5,6 @@ class InventoriesController < ApplicationController
   def index
     if params[:name]
       @inventories = Inventories.name_search(params[:name])
-  
     else
       @inventories = Inventory.all
     end
@@ -38,9 +37,7 @@ class InventoriesController < ApplicationController
 
   def edit
     @inventory = Inventory.find_by(id: params[:id])
-
   end
-
 
   def update
     @items = Item.all
@@ -51,11 +48,8 @@ class InventoriesController < ApplicationController
     else
       redirect_to edit_inventory_path
     end
-  
   end
-
-
-
+  
 ####
   private
 
@@ -66,12 +60,5 @@ class InventoriesController < ApplicationController
   def inventories_params
     params.require(:inventory).permit(:quantity, :unit, :id, :item_id, :owner_id, item_attributes: [:name])
   end
-
-  # def search_all_items
-  #   @items = Item.all
-  #   if params[:name]
-  #     @items = Item.name_search(params[:name])
-  #   end
-  # end
 
 end
