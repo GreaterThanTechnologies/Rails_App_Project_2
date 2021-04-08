@@ -16,7 +16,7 @@
       <li class="nav"><%=link_to "My Items",  owner_items_path(current_owner) %>
       <li class="nav"><%=link_to "Edit My Profile", edit_owner_path(current_owner) %>
       <li class="nav"><%=link_to "Home", '/' %>
-      <li class="nav"><%=link_to "Most", most_path %>
+      <%# <li class="nav"><%=link_to "Most", most_path %> 
       <li class="nav.a"><%= button_to "Log Out", logout_path, method: :post %>
     <%else%>
       <li class="nav"></li><%= link_to('Log in with Facebook!', '/auth/facebook') %> 
