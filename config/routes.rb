@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
   
-  resources :owners, except: [:index, :put] do 
-    resources :items, except: [:destroy, :put]
+  resources :owners  do 
+    resources :items
   end
   
-  resources :items, except:[:put] do
-    resources :inventories, only: [:new, :create, :edit]
+  resources :items do
+    resources :inventories
   end
 
-  resources :inventories, only: [:new, :create, :index]
+  resources :inventories
+  resources :items
+  resources :owners
 
   get '/signup' => "owners#new", as: "signup"
   post '/signup' => "owners#create"
