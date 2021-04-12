@@ -1,12 +1,5 @@
-<h3><% items.each do |m| %></h3>
- <h3><%= m.name %></h3>
-
-<h3 class="center"><% m.inventories.each do |q| %></h3>
-    <h4 class="center"><%= q.quantity %> <%= q.unit %></h4>
-      <h4 class="center"><% m.owners.each do |o| %></h4>
-      <h4 class="center"><%= o.company_name %> /  <%= o.location %></h4>
-     <% end %> 
-
-  <% end %>
+<h3><% items.each do |item| %></h3>
+    <h3 class="center"><%= link_to(item.name, item_path(item)) %></> </h3>
 <% end %>
+ 
 
