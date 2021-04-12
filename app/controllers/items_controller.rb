@@ -24,18 +24,21 @@ class ItemsController < ApplicationController
   end
 
   def index
-    if params[:owner_id]
-      owner = Owner.find_by(id: params[:owner_id])
-      @items = current_owner.items
-     else
+    if !params[:owner_id]
       @items = Item.all
+    elsif @owner = Owner.find_by(id: params[:owner_id])
+      @items = @owner.items
+    else
+      redirect_to items_path
     end
   end
   
   def new
+    
     @item = Item.new
     @item.inventories.build(owner: current_owner)
     @inventories = @item.inventories.select{|p| p.owner_id == current_owner.id}
+    
   end
 
   def create

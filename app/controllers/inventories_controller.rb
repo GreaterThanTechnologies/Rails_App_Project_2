@@ -10,11 +10,20 @@ class InventoriesController < ApplicationController
     end
   end
 
+  def show
+    @item = Item.find_by(id: params[:id])
+  end
+
   def new
+    
     if params[:item_id]
+      
       @item = Item.find_by(id: params[:item_id])
-      @inventories = @item.inventories.build
+      
+      @inventory = @item.inventories.build
+      
       @items = Item.all
+      
     else
       @inventory = Inventory.new
       @inventory.build_item

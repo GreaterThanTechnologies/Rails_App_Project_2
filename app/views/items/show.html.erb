@@ -8,6 +8,7 @@
 
 
 
-  <h4 class="center"><%= link_to "Add This Item to Your Inventory", new_owner_item_path(@item) %></h4><br/>
+  <h4 class="center"><%= link_to "Add This Item to Your Inventory", new_item_inventory_path(@item) %></h4><br/>
   <h4 class="center"><%= link_to "Edit Item", edit_item_path(@item) %></h4><br/><br/>
   <h4 class="center"><%= button_to("Delete", @item, method: :delete, data: { confirm: "Really? Do You Want to Do This?" }) %></h4>
+ 
