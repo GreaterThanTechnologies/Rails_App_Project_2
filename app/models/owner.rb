@@ -8,4 +8,6 @@ class Owner < ApplicationRecord
   validates_presence_of :username, message: " is required."
 
   validates :username, format: {with: /\A^[a-z0-9]*$\z/, message: " special characters, spaces and capital letters not permitted."}
+
+ 
 end

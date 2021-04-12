@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   post '/logout' => "sessions#destroy"
   get '/auth/facebook/callback' => 'sessions#create_with_fb'
   patch '/owners/:id/edit' => 'owners#update'
-  # get '/most' => 'items#most'
+  get '/most' => 'items#most'
   get '/search' => 'items#search', as: 'search_page'
   post '/search' => 'items#results'
   root :to => 'sessions#welcome'

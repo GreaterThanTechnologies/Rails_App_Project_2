@@ -12,6 +12,8 @@ class ItemsController < ApplicationController
 
   def most
     @owner = Owner.order(:items.size).first
+    # @owner = Owner.order(:items.size) 
+    binding.pry
   end
 
 
