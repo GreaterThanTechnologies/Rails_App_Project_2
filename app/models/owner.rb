@@ -9,5 +9,7 @@ class Owner < ApplicationRecord
 
   validates :username, format: {with: /\A^[a-z0-9]*$\z/, message: " special characters, spaces and capital letters not permitted."}
 
- 
+
+
+
 end

@@ -7,6 +7,8 @@ class Inventory < ApplicationRecord
   accepts_nested_attributes_for :item
 
 
-
+  # scope :has_most_items, -> { self.order(:items.size).last 
+  #   binding.pry
+  # }
  
 end

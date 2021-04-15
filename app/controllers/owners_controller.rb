@@ -8,6 +8,8 @@ class OwnersController < ApplicationController
   def profile 
   end
 
+ 
+
   def index
   end 
   

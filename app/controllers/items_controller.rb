@@ -10,10 +10,8 @@ class ItemsController < ApplicationController
     end
   end
 
-  def most
-    @owner = Owner.order(:items.size).first
-    # @owner = Owner.order(:items.size) 
-    binding.pry
+  def order
+    @items =  Item.order(:name)
   end
 
 

@@ -10,6 +10,15 @@ class InventoriesController < ApplicationController
     end
   end
 
+  def most
+    # @inventories = Inventory.has_most_items
+    @owner = Owner.order(:items.length).first 
+    
+    
+    
+ 
+  end
+
   def show
     @item = Item.find_by(id: params[:id])
   end
